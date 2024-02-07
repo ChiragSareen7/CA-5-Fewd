@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
  const[data,setData]=useState({
  });
+ const navigate = useNavigate();
 
  const [alert,setAlert]=useState('');
 
@@ -39,6 +41,9 @@ function Register() {
       
       else{
         setAlert('Your now a member of Books Haven')
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
       }
       
   };

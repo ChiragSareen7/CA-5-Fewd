@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+// import Description from './Description';
 
 function Books() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  // const [details,setDetails]=useState('');
 
   useEffect(() => {
     axios.get("https://reactnd-books-api.udacity.com/books", {
@@ -11,6 +13,7 @@ function Books() {
     })
     .then((res) => {
       setData(res.data.books);
+      console.log(res)
     })
     .catch((err) => console.log(err))
   }, []);
@@ -19,6 +22,10 @@ function Books() {
   const filteredBooks = data.filter(book =>
     book.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  // const handleDescription=(description)=>{
+  //   setDetails(description);
+  // };
 
   return (
     <div className='booksData'>
@@ -36,7 +43,7 @@ function Books() {
         </div>
         </div>
       ))}
-      </div>  
+      </div> 
     </div>
   );
 }

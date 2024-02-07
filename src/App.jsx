@@ -7,10 +7,10 @@ import Books from './Books';
 function App() {
   return (
     <div>
-      <nav>
-        <ul>
+      <nav className='navBar'>
+        <ul className='list'>
           <li><Link to="/">Books</Link></li>
-          <li><Link to="/book">Register</Link></li>
+          <li><Link to="/book"><button>Register</button></Link></li>
         </ul>
       </nav>
       <Routes>
