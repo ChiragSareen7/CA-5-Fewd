@@ -28,18 +28,23 @@ function Books() {
   // };
 
   return (
+
+    
     <div className='booksData'>
-   <input type="text" placeholder="Search by book name" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+    <div className='topBar'>
+    <img src='../src/assets/logo.png' className='logo'/>
+   <input type="text" placeholder="Search by book name" onChange={(e) => setSearchTerm(e.target.value)} className='searchBox'/>
+   </div>
    <div className='bookStore'> 
    {filteredBooks.map((book, index) => (
         <div key={index} className='book'>
         <div className='title'>{book.title}</div>
         <img src={book.imageLinks.thumbnail} alt={book.title} className='bookImg' />
-        <div>{book.authors}</div>
-        <div className='star'><img src='./src/assets/download.png' className='star'/>4/5</div>
+        <div className='author'>{book.authors}</div>
+        <div className='star'><img src='./src/assets/download.png' className='star'/>{book.averageRating}/5</div>
         <div className='addOns'>
-         <button>Buy Now for $0.00</button>
-         <button>Description</button>
+         <button className='addButton'>Buy Now (free)</button>
+         <button className='addButton'>Description</button>
         </div>
         </div>
       ))}

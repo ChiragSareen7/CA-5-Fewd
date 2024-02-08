@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
+
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
@@ -19,18 +19,18 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-      if (!data.name) {
-      setAlert('Please enter your name!');
+    if (!data.name || data.name.split('').length < 3 || data.name.length > 30) {
+      setAlert('Please enter a name with at least 3 words and at most 30 characters!');
     } 
     
     else if (!data.contact || !/^\d{10}$/.test(data.contact)) {
         setAlert('Please enter a valid 10-digit number!');
       } 
       
-      else if (!data.email) {
+      else if (!data.email || !/\S+@\S+\.\S+/.test(data.email)) {
       setAlert('Please enter your email!');
     }  
-    else if (!data.password || data.password.length < 10 )
+    else if (!data.password || data.password.length < 10 || !/[!@#$%^&*(),.?":{}|<>]/.test(data.password))
     
     {
         setAlert('Enter a vaild 10 character password!');
@@ -49,7 +49,7 @@ function Register() {
   };
 
   return (
-    <div>
+    <div className='registration'>
       <div className='head'>Register into Books Haven</div>
       <form onSubmit={handleSubmit} className='data'>
        <label className='labels'>Name:
@@ -61,15 +61,15 @@ function Register() {
        </label>
        <br />
        <label className='labels'>Email:
-           <input className='enter3' type='text' placeholder='Enter your mail' name='email' value={data.email} onChange={handleChange}/>
+           <input className='enter3' type='email' placeholder='Enter your mail' name='email' value={data.email} onChange={handleChange}/>
        </label>
        <br />
        <label className='labels'>Password:
-            <input className='enter4' type='text' placeholder='Enter your Password' name='password' value={data.password} onChange={handleChange}/>
+            <input className='enter4' type='password' placeholder='Enter your Password' name='password' value={data.password} onChange={handleChange}/>
        </label>
        <br />
        <label className='labels'>Repeat-Password:
-            <input className='enter5' type='text' placeholder='Repeat your password' name='repeatPassword' value={data.repeatPassword} onChange={handleChange}/>
+            <input className='enter5' type='password' placeholder='Repeat your password' name='repeatPassword' value={data.repeatPassword} onChange={handleChange}/>
        </label>
        <br />
 
