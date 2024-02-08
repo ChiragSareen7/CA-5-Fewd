@@ -200,6 +200,19 @@ body{
   padding: 20px;
   border: 1px solid black;
 } */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 3vw;
+  transform: translate(-50%, -50%);
+  background-color: #E9E4D0;
+  /* border: 1px solid #ccc; */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #714E38;
+  z-index: 10;
+}
 .searchBox{
   background-color: #E9E4D0;
   color: #714E38;
@@ -208,8 +221,11 @@ body{
   font-size: 1.5vw;
   position: sticky;
   top: 2vw;
-  left: 37vw;
+  left: 35vw;
   border-radius: 1vw;
+}
+.handleSearch{
+  margin-right: 5vw;
 }
 .registration{
   background-color: #E9E4D0;
@@ -223,6 +239,11 @@ body{
   top: 20px;
   right: 20px;
 
+}
+.booksHaven{
+  font-size: 1vw;
+  font-weight: 700;
+  color: #714E38;
 }
 .bookStore{
   margin-top: 8vw;
@@ -238,18 +259,19 @@ ul{
   width: 8vw;
 }
 .topBar{
-  width: 100%;
+  width: 90vw;
+  margin-top: 3vw;
   height: 6vw;
   background-color: #E9E4D0;
   position: sticky;
   box-shadow: 5px 5px 10px 0px black;
-  
+  border-radius: 1vw;
 }
 .topBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px; 
+  padding: 0 10px; 
 }
 
 .logo {
@@ -260,13 +282,27 @@ ul{
 .searchBox {
   flex: 1;
   margin: 0 10px; 
+  border: none;
+  box-shadow: 1px 3px 6px 4px;
 }
 
 .list {
   margin-right: 20px; 
 }
+span{
+  font-size: 2vw;
+  color: #714E38;
+}
+/* button.header{
+  top: 1vw;
+  right: 2vw;
+  position: sticky;
+} */
 
 .header {
+  top: 0vw;
+  right: 2vw;
+  position: fixed;
   background-color: #714E38;
   color: aliceblue;
   border: 2px solid whitesmoke;
@@ -275,6 +311,7 @@ ul{
 }
 @media (max-width: 600px) {
   .topBar {
+    margin-top: 10vw;
     flex-direction: row; 
     height: 10vw;
   }

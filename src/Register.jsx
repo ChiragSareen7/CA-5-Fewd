@@ -8,6 +8,7 @@ function Register() {
  const navigate = useNavigate();
 
  const [alert,setAlert]=useState('');
+ const [registered, setRegistered] = useState(false);
 
  const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,6 +42,7 @@ function Register() {
       
       else{
         setAlert('Your now a member of Books Haven')
+        setRegistered(true);
         setTimeout(() => {
           navigate('/');
         }, 3000);
@@ -77,6 +79,7 @@ function Register() {
       </form>
 
      {alert && <div className='alert'>{alert}</div>}
+     {registered && <div className='popup'>Registered Successfully!</div>}
     </div>
   )
 }

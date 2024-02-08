@@ -32,9 +32,16 @@ function Books() {
     
     <div className='booksData'>
     <div className='topBar'>
-    <img src='../src/assets/logo.png' className='logo'/>
+    <div>
+    
+      <img src='../src/assets/logo.png' className='logo'/>
+      <div className='booksHaven'>Books Haven</div>
+    </div>
+    <div className='handleSearch'>
+    <span>Enter the book name</span>
    <input type="text" placeholder="Search by book name" onChange={(e) => setSearchTerm(e.target.value)} className='searchBox'/>
-   </div>
+   
+   </div></div>
    <div className='bookStore'> 
    {filteredBooks.map((book, index) => (
         <div key={index} className='book'>
